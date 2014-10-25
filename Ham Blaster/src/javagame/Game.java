@@ -31,7 +31,7 @@ public class Game extends StateBasedGame{
         appgc.setDisplayMode(640, 360, false);//set size of window and false because we dont want it fullscreen 
         appgc.start(); //start the window 
      }
-     catch(SlickException e){
+     		catch(SlickException e){
     	 e.printStackTrace();
     	 
      }
