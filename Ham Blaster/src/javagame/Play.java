@@ -46,7 +46,18 @@ public class Play extends BasicGameState{
 	
 	//draw stuff on screen   graphic object is like the paintbrush to draw stuff
 	public void render(GameContainer gc, StateBasedGame sbg,Graphics g) throws SlickException{
-		g.drawString("This is play state", 100,100);
+		g.drawString("Buck's X: "+buckyPositionX+" Y "+buckyPositionY, 400,20);
+		worldMap.draw(buckyPositionX, buckyPositionY);
+		bucky.draw(shiftX,shiftY);
+		
+		if(quit==true){
+			g.drawString("Resume (R)", 250, 100);
+			g.drawString("Main Menu (M)", 250, 150);
+			g.drawString("Quit game (Q)", 250, 200);
+			if(quit == true){
+				g.clear();
+			} 
+		}
 	}
 	
 	//updates the images on screen  
