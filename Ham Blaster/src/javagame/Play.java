@@ -17,7 +17,7 @@ public class Play extends BasicGameState{
 	
 	//draw stuff on screen   graphic object is like the paintbrush to draw stuff
 	public void render(GameContainer gc, StateBasedGame sbg,Graphics g) throws SlickException{
-		
+		g.drawString("This is play state", 100,100);
 	}
 	
 	//updates the images on screen  

@@ -26,19 +26,27 @@ public class Menu extends BasicGameState{
 	//graphic object g is like the paintbrush to draw stuff
 	public void render(GameContainer gc, StateBasedGame sbg,Graphics g) throws SlickException{
 		
-		g.drawImage(face, faceX, faceY);
+		//mouse pointer coordinates displayer
+		g.drawString(mouse, 10, 10);
+		
+		g.fillOval(75, 75, 100, 100);
+		g.drawString("Play Now!", 80, 60);
+		
+		
+		//keyboard input based image
+		//g.drawImage(face, faceX, faceY);
 		
 		// to show a message at 50,50
 		//g.drawString("Are you ready to blast some Ham!! ??", 50, 50);
-		g.drawString(mouse, 50, 50);
+				
 		// draw a rectangle at 50,100  with properties width:60 and height:120
-		g.drawRect(50, 100, 60, 120);
+		//g.drawRect(50, 100, 60, 120);
 		// draw oval at 200,130 with width 130 and height 80
 		//g.drawOval(200, 130, 130, 80);
 		//create a image object use png format
-		Image ball = new Image("res/ball.png");
+		//Image ball = new Image("res/ball.png");
 		//draw that image on screen 
-		g.drawImage(ball, 200, 130);
+		//g.drawImage(ball, 200, 130);
 		
 		
 	}
@@ -46,17 +54,30 @@ public class Menu extends BasicGameState{
 	//updates the images on screen  
 	//when things change
 	public void update(GameContainer gc, StateBasedGame sbg,int delta) throws SlickException{
+		
+		Input input = gc.getInput();
+				
+		
 		//in this library origin at bottom left 
 		int xpos = Mouse.getX();
 		int ypos = Mouse.getY(); 
 		mouse = "Mouse Position X: "+xpos+" Y: "+ypos;
 		
+		
+		//check for cursor position if it is inside the circle
+		if( (xpos>75&&xpos<175) && (ypos>160 && ypos<260) ){
+			// check for cick 0 is left click and 1 is right click
+			if(input.isMouseButtonDown(0)){
+				sbg.enterState(1);
+			}
+		}
+		
 		// getting keyboard imput
-		Input input = gc.getInput();
-		if(input.isKeyDown(Input.KEY_UP))	{ faceY -= 1; }
-		if(input.isKeyDown(Input.KEY_DOWN))	{ faceY += 1; }
-		if(input.isKeyDown(Input.KEY_LEFT))	{ faceX -= 1; }
-		if(input.isKeyDown(Input.KEY_RIGHT)){ faceX += 1; }
+		
+		//if(input.isKeyDown(Input.KEY_UP))	{ faceY -= 1; }
+		//if(input.isKeyDown(Input.KEY_DOWN))	{ faceY += 1; }
+		//if(input.isKeyDown(Input.KEY_LEFT))	{ faceX -= 1; }
+		//if(input.isKeyDown(Input.KEY_RIGHT)){ faceX += 1; }
 	
 	}
 	
