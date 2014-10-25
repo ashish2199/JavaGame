@@ -25,8 +25,18 @@ public class Game extends StateBasedGame{
 	
 	
 	public static void main(String[] args) {
-
-
+     AppGameContainer appgc;//object create used for window for game 
+     try{
+    	 appgc = new AppGameContainer(new Game(gamename));
+        appgc.setDisplayMode(640, 360, false);//set size of window and false because we dont want it fullscreen 
+        appgc.start(); //start the window 
+     }
+     catch(SlickException e){
+    	 e.printStackTrace();
+    	 
+     }
+     
+     
 	}
 
 }
