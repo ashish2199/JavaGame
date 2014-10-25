@@ -4,36 +4,37 @@ import org.newdawn.slick.state.*;
 import org.lwjgl.input.Mouse;
 //creates a simple screen
 public class Menu extends BasicGameState{
-	
 	//create a simple screen or stare
 	
 	public String mouse = "No Input yet";
 	
+	Image face;
+	int faceX = 200;
+	int faceY = 200;
 	//constructor
 	public Menu(int state){
-		
-		
 	}
 	
 	//housekeeping stuff
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-		
+	
+	face= new Image("res/ball.png");
+	
 	}
 	
 	//draw stuff on screen   
 	//graphic object g is like the paintbrush to draw stuff
 	public void render(GameContainer gc, StateBasedGame sbg,Graphics g) throws SlickException{
+		
+		g.drawImage(face, faceX, faceY);
+		
 		// to show a message at 50,50
 		//g.drawString("Are you ready to blast some Ham!! ??", 50, 50);
-		
 		g.drawString(mouse, 50, 50);
-		
 		// draw a rectangle at 50,100  with properties width:60 and height:120
 		g.drawRect(50, 100, 60, 120);
-		
 		// draw oval at 200,130 with width 130 and height 80
 		//g.drawOval(200, 130, 130, 80);
-		
 		//create a image object use png format
 		Image ball = new Image("res/ball.png");
 		//draw that image on screen 
@@ -49,7 +50,16 @@ public class Menu extends BasicGameState{
 		int xpos = Mouse.getX();
 		int ypos = Mouse.getY(); 
 		mouse = "Mouse Position X: "+xpos+" Y: "+ypos;
+		
+		// getting keyboard imput
+		Input input = gc.getInput();
+		if(input.isKeyDown(Input.KEY_UP))	{ faceY -= 1; }
+		if(input.isKeyDown(Input.KEY_DOWN))	{ faceY += 1; }
+		if(input.isKeyDown(Input.KEY_LEFT))	{ faceX -= 1; }
+		if(input.isKeyDown(Input.KEY_RIGHT)){ faceX += 1; }
+	
 	}
+	
 	//returns ID of state
 	public int getID(){
 	return 0;
