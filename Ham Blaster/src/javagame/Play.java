@@ -50,11 +50,12 @@ public class Play extends BasicGameState{
 		worldMap.draw(buckyPositionX, buckyPositionY);
 		bucky.draw(shiftX,shiftY);
 		
-		if(quit==true){
+		if(quit == true){
 			g.drawString("Resume (R)", 250, 100);
 			g.drawString("Main Menu (M)", 250, 150);
 			g.drawString("Quit game (Q)", 250, 200);
-			if(quit == true){
+			// wipe out
+			if(quit == false){
 				g.clear();
 			} 
 		}
@@ -99,6 +100,20 @@ public class Play extends BasicGameState{
 			if(buckyPositionX<-840){
 				buckyPositionX += delta * .1f;
 			}
+		}
+		
+		//escape menu
+		if (input.isKeyDown(Input.KEY_ESCAPE)){
+			quit = true ;
+			/*if (input.isKeyDown(Input.KEY_ESCAPE)){
+				quit = false;
+			}*/
+		}
+		//after menu pops up 
+		if(quit == true){
+			if (input.isKeyDown(Input.KEY_R)){ quit=false; }
+			if (input.isKeyDown(Input.KEY_M)){ sbg.enterState(0); }
+			if (input.isKeyDown(Input.KEY_Q)){ System.exit(0); }
 		}
 		
 	}
