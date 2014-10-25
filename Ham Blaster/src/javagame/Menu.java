@@ -9,6 +9,9 @@ public class Menu extends BasicGameState{
 	public String mouse = "No Input yet";
 	
 	Image face;
+	Image exitGame;
+	Image playNow;
+	
 	int faceX = 200;
 	int faceY = 200;
 	//constructor
@@ -18,7 +21,9 @@ public class Menu extends BasicGameState{
 	//housekeeping stuff
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
 	
-	face= new Image("res/ball.png");
+	face = new Image("res/ball.png");
+	playNow = new Image("res/playNow.png");
+	exitGame = new Image("res/exitGame.png");
 	
 	}
 	
@@ -29,9 +34,11 @@ public class Menu extends BasicGameState{
 		//mouse pointer coordinates displayer
 		g.drawString(mouse, 10, 10);
 		
-		g.fillOval(75, 75, 100, 100);
-		g.drawString("Play Now!", 80, 60);
+		//g.fillOval(75, 75, 100, 100);
+		//g.drawString("Play Now!", 80, 60);
 		
+		playNow.draw(100, 100);
+		exitGame.draw(100,200);
 		
 		//keyboard input based image
 		//g.drawImage(face, faceX, faceY);
