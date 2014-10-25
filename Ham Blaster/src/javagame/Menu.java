@@ -72,6 +72,22 @@ public class Menu extends BasicGameState{
 		
 		
 		//check for cursor position if it is inside the circle
+		if( (xpos>100&&xpos<311) && (ypos>209 && ypos<260) ){
+			// check for cick 0 is left click and 1 is right click
+			if(input.isMouseButtonDown(0)){
+				sbg.enterState(1);
+			}
+		}
+		
+		
+		if( (xpos>100&&xpos<311) && (ypos>109 && ypos<160) ){
+			// check for cick 0 is left click and 1 is right click
+			if(input.isMouseButtonDown(0)){
+				System.exit(0);
+			}
+		}
+		
+		
 		if( (xpos>75&&xpos<175) && (ypos>160 && ypos<260) ){
 			// check for cick 0 is left click and 1 is right click
 			if(input.isMouseButtonDown(0)){
