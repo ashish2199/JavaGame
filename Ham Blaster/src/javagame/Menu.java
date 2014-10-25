@@ -27,7 +27,13 @@ public class Menu extends BasicGameState{
 		g.drawRect(50, 100, 60, 120);
 		
 		// draw oval at 200,130 with width 130 and height 80
-		g.drawOval(200, 130, 130, 80);
+		//g.drawOval(200, 130, 130, 80);
+		
+		//create a image object use png format
+		Image ball = new Image("res/ball.png");
+		//draw that image on screen 
+		g.drawImage(ball, 200, 130);
+		
 		
 	}
 	
